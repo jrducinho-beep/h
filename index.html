@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc mừng Ngày Nhà Giáo Việt Nam 20/11</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Hiệu ứng mở màn tách màn hình -->
+    <div id="curtain-left" class="curtain"></div>
+    <div id="curtain-right" class="curtain"></div>
+
+    <!-- Trang chính: Chọn lớp -->
+    <div id="main-page" class="hidden">
+        <h1 class="title">Chúc mừng Ngày Nhà Giáo Việt Nam 20/11</h1>
+        <p>Chọn lớp của bạn để gửi lời chúc đến thầy cô!</p>
+        <div class="class-buttons">
+            <button class="class-btn" data-class="1">Lớp 1</button>
+            <button class="class-btn" data-class="2">Lớp 2</button>
+            <button class="class-btn" data-class="3">Lớp 3</button>
+            <button class="class-btn" data-class="4">Lớp 4</button>
+            <button class="class-btn" data-class="5">Lớp 5</button>
+            <button class="class-btn" data-class="6">Lớp 6</button>
+        </div>
+    </div>
+
+    <!-- Trang lời chúc -->
+    <div id="wish-page" class="hidden">
+        <h2 id="teacher-name">Lời chúc gửi đến thầy cô</h2>
+        <img id="teacher-img" src="" alt="Ảnh thầy cô" class="teacher-img">
+        <p id="wish-text"></p>
+        <button id="music-toggle">🎵 Bật nhạc</button>
+        <button id="back-btn">Quay lại</button>
+        <!-- Hoa rơi container -->
+        <div id="confetti-container"></div>
+    </div>
+
+    <!-- Nhạc nền (ẩn) -->
+    <audio id="bg-music" loop>
+        <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav"> <!-- Thay bằng file nhạc của bạn nếu muốn -->
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
