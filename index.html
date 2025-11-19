@@ -7,38 +7,64 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Hiệu ứng mở màn tách màn hình -->
-    <div id="curtain-left" class="curtain"></div>
-    <div id="curtain-right" class="curtain"></div>
-
-    <!-- Trang chính: Chọn lớp -->
-    <div id="main-page" class="hidden">
-        <h1 class="title">Chúc mừng Ngày Nhà Giáo Việt Nam 20/11</h1>
-        <p>Chọn lớp của bạn để gửi lời chúc đến thầy cô!</p>
-        <div class="class-buttons">
-            <button class="class-btn" data-class="1">Lớp 1</button>
-            <button class="class-btn" data-class="2">Lớp 2</button>
-            <button class="class-btn" data-class="3">Lớp 3</button>
-            <button class="class-btn" data-class="4">Lớp 4</button>
-            <button class="class-btn" data-class="5">Lớp 5</button>
-            <button class="class-btn" data-class="6">Lớp 6</button>
+    <!-- Trang đầu: Bức thư -->
+    <div id="envelope-page">
+        <div id="envelope" class="envelope">
+            <div class="envelope-flap"></div>
+            <div class="envelope-body"></div>
         </div>
+        <p class="click-hint">Bấm vào bức thư để mở lời chúc!</p>
     </div>
 
     <!-- Trang lời chúc -->
     <div id="wish-page" class="hidden">
-        <h2 id="teacher-name">Lời chúc gửi đến thầy cô</h2>
-        <img id="teacher-img" src="" alt="Ảnh thầy cô" class="teacher-img">
+        <h2>Lời chúc gửi đến thầy cô</h2>
         <p id="wish-text"></p>
+    </div>
+
+    <!-- Trang minigame -->
+    <div id="game-page" class="hidden">
+        <h2>Minigame: Đò Người Tránh Điểm Kém</h2>
+        <div id="game-area">
+            <div id="player"></div>
+            <div id="obstacles"></div>
+        </div>
+        <div class="controls">
+            <button id="left-btn">⬅️ Trái</button>
+            <button id="right-btn">➡️ Phải</button>
+        </div>
+        <p id="game-status">Sử dụng nút mũi tên hoặc bấm nút để di chuyển!</p>
+    </div>
+
+    <!-- Trang trái đất -->
+    <div id="earth-page" class="hidden">
+        <h2>Chúc mừng! Bạn đã qua minigame. Bấm vào trái đất để chọn lớp!</h2>
+        <div id="earth" class="earth"></div>
+        <div id="class-selection" class="hidden">
+            <h3>Chọn lớp của bạn:</h3>
+            <div class="class-buttons">
+                <button class="class-btn" data-class="1">Lớp 1</button>
+                <button class="class-btn" data-class="2">Lớp 2</button>
+                <button class="class-btn" data-class="3">Lớp 3</button>
+                <button class="class-btn" data-class="4">Lớp 4</button>
+                <button class="class-btn" data-class="5">Lớp 5</button>
+                <button class="class-btn" data-class="6">Lớp 6</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Trang cuối: Lời chúc theo lớp -->
+    <div id="final-wish-page" class="hidden">
+        <h2 id="teacher-name">Lời chúc gửi đến thầy cô</h2>
+        <p id="final-wish-text"></p>
         <button id="music-toggle">🎵 Bật nhạc</button>
-        <button id="back-btn">Quay lại</button>
-        <!-- Hoa rơi container -->
+        <button id="back-to-earth">Quay lại trái đất</button>
         <div id="confetti-container"></div>
     </div>
 
-    <!-- Nhạc nền (ẩn) -->
+    <!-- Nhạc nền -->
     <audio id="bg-music" loop>
-        <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav"> <!-- Thay bằng file nhạc của bạn nếu muốn -->
+        <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav">
     </audio>
 
     <script src="script.js"></script>

@@ -7,43 +7,130 @@ body {
     overflow-x: hidden;
 }
 
-/* Hiệu ứng tách màn hình */
-.curtain {
-    position: fixed;
+/* Trang envelope */
+#envelope-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.envelope {
+    width: 200px;
+    height: 150px;
+    background: #f4a261;
+    position: relative;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.envelope-flap {
+    width: 0;
+    height: 0;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 75px solid #e76f51;
+    position: absolute;
     top: 0;
-    width: 50%;
-    height: 100%;
-    background: #000;
-    z-index: 10;
-    transition: transform 1.5s ease-in-out;
-}
-#curtain-left {
     left: 0;
-    transform: translateX(-100%);
+    transition: transform 0.5s;
 }
-#curtain-right {
-    right: 0;
-    transform: translateX(100%);
+.envelope.open .envelope-flap {
+    transform: rotateX(180deg);
 }
-.curtain.open {
-    transform: translateX(0);
+.envelope-body {
+    width: 100%;
+    height: 100%;
+    background: #f4a261;
+    border-radius: 10px;
+}
+.click-hint {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
 }
 
-/* Trang chính */
-#main-page {
+/* Trang lời chúc */
+#wish-page {
     padding: 50px;
-    animation: fadeIn 2s;
 }
-.title {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 20px;
+
+/* Trang game */
+#game-page {
+    padding: 20px;
+}
+#game-area {
+    width: 100%;
+    max-width: 400px;
+    height: 300px;
+    background: #87ceeb;
+    position: relative;
+    margin: 0 auto;
+    border: 2px solid #333;
+    overflow: hidden;
+}
+#player {
+    width: 50px;
+    height: 50px;
+    background: #ff6b6b;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+}
+.obstacle {
+    width: 30px;
+    height: 30px;
+    background: #dc143c;
+    position: absolute;
+    top: -30px;
+    border-radius: 50%;
+    animation: fall 3s linear infinite;
+}
+@keyframes fall {
+    to {
+        transform: translateY(330px);
+    }
+}
+.controls {
+    margin-top: 20px;
+}
+#left-btn, #right-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 0 10px;
+    border: none;
+    background: #4caf50;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Trang trái đất */
+#earth-page {
+    padding: 50px;
+}
+.earth {
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle at 30% 30%, #4caf50, #2196f3, #ff9800);
+    border-radius: 50%;
+    margin: 0 auto;
+    animation: rotate 10s linear infinite;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 .class-buttons {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 15px;
+    margin-top: 20px;
 }
 .class-btn {
     padding: 12px 24px;
@@ -59,19 +146,12 @@ body {
     background: #ff5252;
 }
 
-/* Trang lời chúc */
-#wish-page {
+/* Trang cuối */
+#final-wish-page {
     padding: 50px;
     position: relative;
 }
-.teacher-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin: 20px 0;
-    border: 3px solid #ff6b6b;
-}
-#music-toggle, #back-btn {
+#music-toggle, #back-to-earth {
     padding: 10px 20px;
     margin: 10px;
     border: none;
@@ -80,11 +160,9 @@ body {
     border-radius: 8px;
     cursor: pointer;
 }
-#back-btn {
+#back-to-earth {
     background: #f44336;
 }
-
-/* Hoa rơi */
 #confetti-container {
     position: absolute;
     top: 0;
@@ -101,23 +179,14 @@ body {
     background: #ff6b6b;
     animation: fall 3s linear infinite;
 }
-@keyframes fall {
-    to {
-        transform: translateY(100vh) rotate(360deg);
-    }
-}
 
 .hidden {
     display: none;
 }
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
 
 /* Responsive */
 @media (max-width: 600px) {
-    .title { font-size: 24px; }
-    .class-btn { font-size: 16px; padding: 10px 20px; }
-    .teacher-img { width: 120px; height: 120px; }
+    .envelope { width: 150px; height: 112px; }
+    #game-area { height: 250px; }
+    .earth { width: 150px; height: 150px; }
 }
